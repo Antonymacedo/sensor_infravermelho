@@ -1,25 +1,51 @@
-# Arduino LED and Infrared Sensor Project
+# Sensor Infravermelho com Arduino 🔥
 
-## Componentes Utilizados
-- Arduino Uno
-- Sensor de infravermelho PIR
-- LEDs (vermelho, amarelo)
-- Buzzer
-- Protoboard e cabos jumper
+Um sistema simples e eficiente de detecção de movimento com sensor PIR, LEDs indicadores e um buzzer de alerta. Esse projeto utiliza o Arduino Uno para interpretar o sinal do sensor de infravermelho e acionar alarmes visuais e sonoros, simulando um sistema básico de segurança ou detecção de presença.
 
-## Conexões
-1. Conecte o pino VCC do sensor PIR ao pino 5V.
-2. Conecte o pino GND do sensor ao GND.
-3. O pino de saída do sensor PIR deve ir ao pino digital D7.
-4. Conecte os LEDs aos pinos digitais D8 e D9, com resistores em série.
-5. Conecte o buzzer ao pino digital D3.
+O circuito detecta calor (como o de uma pessoa passando em frente ao sensor) e, quando isso acontece, o buzzer é acionado e os LEDs piscam alternadamente, criando um efeito de alerta. É um ótimo exemplo de como sensores e atuadores podem ser combinados para formar sistemas inteligentes e responsivos.
+
+## Materiais⚙️
+
+<img width="50%" alt="Imagem do WhatsApp de 2025-10-03 à(s) 09 33 01_cddcb55d" src="https://github.com/user-attachments/assets/3f77a627-d851-4330-9950-50b881c2ad48" />
+
+* Arduino Uno
+* Sensor de infravermelho PIR
+* LEDs (vermelho, amarelo)
+* Buzzer
+* Resistor de 220Ω (x2)
+
+**OBS:** Também é necessário fios de cobre e protobord.
+
+## Conexões⚡️
+
+| **Componente**   | **Pino no Arduino** | **Descrição**                          |
+| ---------------- | ------------------- | -------------------------------------- |
+| Sensor PIR (VCC) | 5V                  | Alimentação do sensor                  |
+| Sensor PIR (GND) | GND                 | Terra do circuito                      |
+| Sensor PIR (OUT) | D7                  | Saída digital do sensor                |
+| LED Vermelho     | D8                  | LED indicador 1 (via resistor de 220Ω) |
+| LED Amarelo      | D9                  | LED indicador 2 (via resistor de 220Ω) |
+| Buzzer           | D3                  | Emite o som de alerta                  |
 
 
-## Como Funciona
-- O sensor PIR detecta calor.
-- Quando o sensor detecta calor, um som é emitido pelo buzzer e os LEDs piscam alternadamente.
 
-## Código
+
+## Funcionamento🤖
+
+Quando o sensor PIR detecta movimento ou calor, ele envia um sinal HIGH (1) para o Arduino. O programa então aciona o buzzer e faz com que os LEDs pisquem rapidamente, simulando uma situação de alarme.
+Se não houver detecção, o sistema permanece em repouso, com LEDs e buzzer desligados.
+É uma base que pode ser expandida para projetos maiores, como sistemas de segurança, alarmes automáticos ou dispositivos IoT.
+
+## Montagem🔌
+
+![t725](https://github.com/user-attachments/assets/180dbde5-b400-47b6-92de-01f983b98b7d)
+
+A montagem é bem direta. Conecte o sensor PIR à protoboard e ligue seu pino VCC ao 5V, GND ao terra (GND) e o pino de saída (OUT) ao pino digital 7 do Arduino.
+Em seguida, posicione os dois LEDs: conecte o LED vermelho ao pino 8 e o LED amarelo ao pino 9, cada um com seu resistor de 220Ω em série antes de ir para o GND.
+Por fim, conecte o buzzer ao pino 3, com o outro terminal indo ao GND.
+Após isso, basta enviar o código e observar o sistema funcionando — quando o sensor detectar calor, os LEDs piscarão e o buzzer emitirá um som de alerta.
+
+## Código💻
 ```
 int pino_D0 = 7;  // Pino de entrada para detecção
 int buzzerPin = 3;  // Pino do buzzer
@@ -74,10 +100,7 @@ void loop() {
   delay(500);  // Atraso geral
 }
 ```
-## Esquema do projeto
 
-![t725](https://github.com/user-attachments/assets/180dbde5-b400-47b6-92de-01f983b98b7d)
-
-## Projeto no simulador Tinkercad
+## Projeto no TinkerCAD❗
 
 https://www.tinkercad.com/things/0WnnJ8fC8kX-sensor-infra-vermelho
